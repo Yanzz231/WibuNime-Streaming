@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="FREE REST API">
+	<meta name="author" content="ZENZ API">
+	<title>LOGIN - REST API</title>
+	<meta property="og:site_name" name="og:site_name" content="ZENZ REST API">
+	<meta property="og:title" name="og:title" content="ZENZ - REST API">
+	<meta property="og:url" name="og:url" content="https://zenzapi.xyz/">
+	<meta property="og:image" name="og:image" content="/images/icon.jpg">
+	<meta property="og:description" name="og:description" content="FREE REST API">
+	<link rel="shortcut icon" type="image/x-icon" href="/images/icon.jpg">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+	<link href="/css/login.css" rel="stylesheet" type="text/css" />
+	<link href="/css/swal.css" rel="stylesheet">
+</head>
+
+	<body id="kt_body" class="dark-mode bg-light">
+		<div class="d-flex flex-column flex-root">
+			<div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center" style="background-color:#0A0F23">
+				<div class="d-flex flex-center flex-column flex-column-fluid p-5 pb-lg-20">
+					<div class="w-lg-600px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto border">
+						<form method="POST" action="/user/login" class="form w-100" id="kt_sign_up_form">
+							<div class="mb-10 text-center">
+								<h1 class="text-dark mb-3">ZENZAPI LOGIN</h1>
+								<div class="text-gray-400 fw-bold fs-4">New Here? 
+								<a href="/user/register" class="link-primary fw-bolder">Create an Account</a></div>
+							</div>
+							<div class="d-flex align-items-center mb-10">
+								<div class="border-bottom border-gray-300 mw-50 w-100"></div>
+								<span class="fw-bold text-gray-400 fs-7 mx-2">OR</span>
+								<div class="border-bottom border-gray-300 mw-50 w-100"></div>
+							</div>
+							<div class="fv-row mb-7">
+								<label class="form-label fw-bolder text-dark fs-6">Email</label>
+								<input class="form-control form-control-lg " type="email" placeholder="Email" name="email" autocomplete="off" required/>
+							</div>
+							<div class="fv-row mb-6">
+								<div class="d-flex flex-stack mb-2">
+									<label class="form-label fw-bolder text-dark fs-6 mb-0">Password</label>
+									<a href="/user/recovery" class="link-primary fs-6 fw-bolder">Forgot Password ?</a>
+								</div>
+								<input class="form-control form-control-lg" type="password" placeholder="Password" name="password" autocomplete="off" />
+							</div> 
+							<input type="checkbox" name="checkbox" id="rememberMe"> <label for="rememberMe">Remember me</label>
+							<div class="fv-row mt-3 mb-10">
+								<div class="g-recaptcha" data-sitekey="6LdRQjYbAAAAAE_Erc95FANBoOcdfLbnsZ3Uji-1"></div>
+							</div>
+							<div class="text-center">
+								<button type="submit" class="btn btn-lg btn-primary">Login</button>
+								<button type="button" class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3" onclick="goBack()">Cancel</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="/js/login.js"></script>
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+		<script src="https://www.google.com/recaptcha/api.js"></script>
+		<script>
+			function goBack() {
+			window.history.back();
+			}
+		</script>
+		<script>
+			function pwchange() {
+				const password = document.querySelector('input[kontol=password2]');
+				const confirm = document.querySelector('input[kontol=confirmPassword2]');
+				if (confirm.value === password.value) {
+				document.getElementById('passwordmatch').innerHTML = '';
+				} else {
+				document.getElementById('passwordmatch').innerHTML = 'PASSWORD DO NOT MATCH';
+				}
+			}
+		</script>
+		<script>
+			if ( window.history.replaceState ) {
+				window.history.replaceState( null, null, window.location.href );
+			}
+		</script>
+	</body>
+</html>
