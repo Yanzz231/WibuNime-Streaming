@@ -1,0 +1,75 @@
+[
+  {
+    "nama": "Takt Op. Destiny",
+    "sinop": "Dunia benar-benar berubah ketika meteorit hitam yang menghasilkan monster aneh yang disebut “D2” jatuh ke bumi dan akhirnya menguasai tanah dan penduduknya. D2 dengan sangat cepat melarang semua musik, yang merupakan satu-satunya hal yang dapat mengatasinya. Tapi ada orang yang menentang D2. Mereka adalah gadis-gadis yang memegang kekuatan musik, “Musicart.” Dengan bimbingan seorang “Konduktor”, para gadis-gadis ini menggunakan musik terbesar dalam sejarah manusia untuk mengalahkan monster.",
+    "thumb": "https://yuucdn.net/storage/drive/user-300/gLOnkmImDXzOYApLGzExcjXP7wQBFs.jpg",
+    "nameurl": "takt-op-destiny",
+    "genre": [
+      "action",
+      "fantasy"
+    ],
+    "time": "2021-12-23",
+    "type": "TV",
+    "status": false,
+    "studio": "MadHouse, Mappa",
+    "view": 3,
+    "quolity": "HD",
+    "eps": [
+      {
+        "view": 0,
+        "ip": [],
+        "time": "2021-12-23",
+        "eps": 1,
+        "download": [
+          {
+            "url": "https://acefile.co/player/63318833",
+            "name": ""
+          }
+        ],
+        "stream": "https://acefile.co/player/63318833"
+      }
+    ],
+    "ip": [
+      "1",
+      "192.168.145.183",
+      "127.0.0.1"
+    ]
+  },
+  {
+    "nama": "Sekai Saikou no Ansatsusha, Isekai Kizoku ni Tensei suru",
+    "sinop": "“Aku akan hidup untuk diriku sendiri!”  Pembunuh terhebat di Bumi hanya tahu bagaimana hidup sebagai alat bagi majikannya—sampai mereka berhenti membiarkannya hidup. Dilahirkan kembali oleh anugerah seorang dewi ke dunia pedang dan sihir, dia ditawari kesempatan untuk melakukan hal-hal yang berbeda kali ini, tapi ada masalah… Dia harus melenyapkan pahlawan super kuat yang akan membawa akhir dunia kecuali dia dihentikan.  Sekarang dikenal sebagai Lugh Tuatha Dé, sang master assassin pasti sangat sibuk, terutama karena semua gadis cantik yang terus-menerus mengelilinginya. Lugh mungkin adalah pembunuh yang tak tertandingi, tetapi bagaimana dia akan melawan musuh dengan sihir yang kuat?",
+    "thumb": "https://yuucdn.net/storage/drive/user-300/aGhwozfZiFWahPVCnvXYoWw0TxPb1F.jpg",
+    "nameurl": "sekai-saikou-no-ansatsusha",
+    "genre": [
+      "action",
+      "fantasy"
+    ],
+    "time": "2021-12-24",
+    "type": "TV",
+    "status": false,
+    "studio": "SILVER LINK., Studio Palette",
+    "view": 2,
+    "quolity": "HD",
+    "eps": [
+      {
+        "view": 0,
+        "ip": [
+          "192.168.145.183"
+        ],
+        "time": "2021-12-24",
+        "eps": 1,
+        "download": [
+          {
+            "url": "https://acefile.co/player/63382762",
+            "name": ""
+          }
+        ],
+        "stream": "https://acefile.co/player/63382762"
+      }
+    ],
+    "ip": [
+      "1",
+      "192.168.145.183"
+    ]
+  }
+]
