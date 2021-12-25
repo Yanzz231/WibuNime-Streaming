@@ -1,0 +1,132 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="A REST APIs website that provides a wide variety of features for developers.">
+<meta name="robots" content="archive, follow, imageindex, index, odp, snippet, translate">
+<meta name="author" content="h4ck3rs404">
+<meta property="og:site_name" name="og:site_name" content="STREAM">
+<meta property="og:title" name="og:title" content="STREAM">
+<meta property="og:url" name="og:url" content="STREAM">
+<meta property="og:image" name="og:image" content="icon/android-icon-192x192.png">
+<meta property="og:description" name="og:description" content="A REST APIs website that provides a wide variety of features for developers.">
+<link rel="apple-touch-icon" sizes="57x57" href="/static/icon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/static/icon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/static/icon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/static/icon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/static/icon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/static/icon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/static/icon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/static/icon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/static/icon/apple-icon-180x180.png">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/static/icon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/icon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/static/icon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/static/icon/favicon-16x16.png">
+<title>Edit User </title>
+<script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet"/>
+<link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<link href="/auth/css/login.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<script>    
+    function chgAction(action, actn, type, pass){        
+        document.form_admin.action = "/admin?action="+action+"&acnum="+actn+"&type"+type+"&pass="+pass
+    }
+    setInterval(() => {
+        //var act3 = document.getElementById("action");
+        //var strUser1 = act3.value;
+        //var act2 = document.getElementById("type")
+        //var strUser2 = act2.value;
+        //var act1 = document.getElementById("typeanime")
+        //var strUser3 = act1.value;
+        //var act4 = document.getElementById("password")
+        //var strUser4 = act4.value;
+        chgAction(document.getElementById("action").value, document.getElementById("type").value, document.getElementById("typeanime").value, document.getElementById("password").value)
+    }, 10)
+</script>
+<div class="d-flex flex-column flex-root">
+<div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center" style="background-color:#0A0F23">
+    <div class="d-flex flex-center flex-column flex-column-fluid p-5 pb-lg-20">
+        <div class="w-lg-600px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto border">
+        <form method="POST" action="/admin/undefined" class="form w-100" id="kt_sign_up_form" name="form_admin">
+<div class="mb-10 text-center">
+    <h1 class="text-dark mb-3">MANAGE ANIME</h1>
+</div>
+<div class="d-flex align-items-center mb-10">
+    <div class="border-bottom border-gray-300 mw-50 w-100"></div>
+</div>
+<div class="fv-row mb-7">
+    <label class="form-label fw-bolder text-dark fs-6">Action</label>
+        <select id="action" name="action" class="form-control form-control-lg" placeholder="Add">
+            <option value="add">Add</option>
+            <option value="edit">Edit</option>
+            <option value="delete">delete</option>
+        </select>                                                      
+    </div>
+<div class="fv-row mb-7">
+<label class="form-label fw-bolder text-dark fs-6">Action Type</label>
+    <select id="type" name="type" class="form-control form-control-lg" placeholder="Normal">
+        <option value="1">Normal</option>
+        <option value="2">Eps</option>
+    </select>                                                      
+</div>
+<div class="fv-row mb-7">
+    <label class="form-label fw-bolder text-dark fs-6">Anime Name</label>
+    <select id="anime" name="anime" class="form-control form-control-lg" placeholder="Anime">
+        <option value="kanojo">kanojo</option><option value="kanjut">kanjut</option><option value="mejawati">mejawati</option><option value="puan">puan</option><option value="putin">putin</option><option value="biden">biden</option><option value="ahox">ahox</option><option value="prabowo">prabowo</option><option value="banteng">banteng</option><option value="kayu">kayu</option><option value="mobil">mobil</option><option value="ko">ko</option>
+    </select>                                                      
+</div>
+<div class="fv-row mb-7">
+    <label class="form-label fw-bolder text-dark fs-6">Sinop</label>
+    <input class="form-control form-control-lg" type="text" placeholder="Sinop" name="sinop" autocomplete="off" required/>
+</div>
+<div class="fv-row mb-7">
+    <label class="form-label fw-bolder text-dark fs-6">Thumb</label>
+    <input class="form-control form-control-lg" type="text" placeholder="https://static.dw.com/image/18720428_403.jpg" name="thumb" autocomplete="off" required/>
+</div>
+<div class="fv-row mb-7">
+    <label class="form-label fw-bolder text-dark fs-6">Name Url</label>
+    <input class="form-control form-control-lg" type="text" placeholder="One Pice" name="nameurl" autocomplete="off" required/>
+</div>
+<div class="fv-row mb-7">
+    <label class="form-label fw-bolder text-dark fs-6">Genre</label>
+    <input class="form-control form-control-lg" type="text" placeholder="horor, adventure, ..." name="genre" autocomplete="off" required/>
+</div>
+<div class="fv-row mb-7">
+    <label class="form-label fw-bolder text-dark fs-6">Anime Type</label>
+    <select id="typeanime" name="typeanime" class="form-control form-control-lg" placeholder="Movie">
+        <option value="movie">Movie</option>
+        <option value="tv">Tv</option>
+    </select>                                                      
+</div>
+<div class="fv-row mb-7">
+    <label class="form-label fw-bolder text-dark fs-6">Time</label>
+    <input class="form-control form-control-lg" type="date" name="date" value="2021/12/16" autocomplete="off" required/>
+</div>
+<div class="fv-row mb-7">
+    <label class="form-label fw-bolder text-dark fs-6">Studio</label>
+    <input class="form-control form-control-lg" type="text" placeholder="Marvel Studio" name="studio" autocomplete="off" required/>
+</div>
+<div class="fv-row mb-7">
+    <label class="form-label fw-bolder text-dark fs-6">Password</label>
+    <input id="password" class="form-control form-control-lg" type="password" placeholder="Marvel Studio" name="password" autocomplete="off" required/>
+</div>
+<br>
+<br>
+<div class="text-center">
+    <button type="submit" class="btn btn-lg btn-primary">Save</button>
+    <button type="button" class="btn btn-light-primary font-weight-bolder font-size-h6 px-8 py-4 my-3" onclick="history.back()">Cancel</button>
+</div>
+</form>
+  </div>
+</div>
+</div>
+</div>
+<script src="/auth/js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{
+  "name": "yan-strim",
+  "version": "1.0.0",
+  "description": "webside henk nasa",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "xnxx.com"
+  },
+  "author": "Soeharto",
+  "license": "ISC",
+  "dependencies": {
+    "@adiwajshing/baileys-md": "github:adiwajshing/baileys#multi-device",
+    "@hapi/boom": "^9.1.4",
+    "@vitalets/google-translate-api": "^7.0.0",
+    "awesome-phonenumber": "^2.65.0",
+    "axios": "^0.24.0",
+    "chalk": "^4.1.2",
+    "cheerio": "^1.0.0-rc.10",
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "figlet": "^1.5.2",
+    "fluent-ffmpeg": "^2.1.2",
+    "gofile-apiwrapper": "^1.1.2",
+    "memorystore": "^1.6.6",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.34",
+    "multer": "^1.4.4",
+    "node-cron": "^3.0.0",
+    "node-fetch": "^2.6.6",
+    "node-webpmux": "^3.1.0",
+    "nodemailer": "^6.7.2",
+    "querystring": "^0.2.1",
+    "request": "^2.88.2",
+    "serve-favicon": "^2.5.0",
+    "ws": "^8.3.0"
+  }
+}
