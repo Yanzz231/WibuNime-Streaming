@@ -20,7 +20,7 @@ If you like using this website, donate to them to keep their servers up and runn
 
 ## License
 
-This project is under the [Yanzz](https://github.com/Yanzz231) And [Yanzz](https://github.com/RDTUTORIAL) license. 
+This project is under the [Yanzz](https://github.com/Yanzz231) And [RDTUTORIAL](https://github.com/RDTUTORIAL) license. 
 
 ## Helper 🤖
 
