@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Yanzz231/WibuNime-Streaming/master/img/logo.PNG" width="150" />
+  <img src="https://raw.githubusercontent.com/Yanzz231/WibuNime-Streaming/master/img/logo.png" width="150" />
 </p>
 
 <p align="center">
