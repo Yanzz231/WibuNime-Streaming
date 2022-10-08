@@ -22,4 +22,4 @@ If you like using this app, donate to them to keep their servers up and running.
 
 ## License
 
-This project is under the [GPL-3.0](LICENSE.md) license.
+This project is under the [GPL-3.0](LICENSE.md) license. 
