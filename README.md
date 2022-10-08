@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Yanzz231/WibuNime-Streaming/master/img/logo.png" width="150" />
+  <img src="https://raw.githubusercontent.com/Yanzz231/WibuNime-Streaming/master/img/logow.png" width="150" />
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Yanzz231/WibuNime-Streaming/master/img/dasktop.PNG" width="550" />
+  <img src="https://raw.githubusercontent.com/Yanzz231/WibuNime-Streaming/master/img/dasktopw.PNG" width="550" />
 </p>
 
 <p align="center">Unofficial Anime Twist application.</p>
