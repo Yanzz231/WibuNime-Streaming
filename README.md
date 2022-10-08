@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Matheus-0/Anime-Twist/master/.github/logo.png" width="150" />
+  <img src="https://raw.githubusercontent.com/Yanzz231/WibuNime-Streaming/img/img.png" width="150" />
 </p>
 
 <p align="center">
