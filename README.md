@@ -10,9 +10,7 @@
 
 ## Installation
 
-Just go to the [latest release](https://github.com/Matheus-0/Anime-Twist/releases/latest), download the application and install it on your device.
-
-You need Android 5+ for it to work. An iOS version is not available.
+Just by typing node . or node index.js in command prompt or on linux
 
 ## Disclaimer
 
