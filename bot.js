@@ -8,7 +8,7 @@ module.exports = {
         obeng: ':wrench:',
         book: ':notebook_with_decorative_cover:',
         name: ':scroll:',
-        deteksif: ':man_detective_tone1:',
+        deteksif: ':man_detective_tone1:', 
         bowling: ':bowling:',
         nsfw: ':underage:',
         king: ':crown:',
