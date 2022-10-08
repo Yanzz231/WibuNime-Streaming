@@ -14,9 +14,9 @@ Just by typing node . or node index.js in command prompt or on linux
 
 ## Disclaimer
 
-I am not affiliated with [Anime Twist](https://twist.moe/), neither is this application. I made this project for educational purposes only.
+I am not affiliated with WibuNime, I made this project for educational purposes only.
 
-If you like using this app, donate to them to keep their servers up and running.
+If you like using this website, donate to them to keep their servers up and running.
 
 ## License
 
