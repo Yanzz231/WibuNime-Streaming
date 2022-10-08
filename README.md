@@ -6,7 +6,7 @@
   <img src="https://raw.githubusercontent.com/Yanzz231/WibuNime-Streaming/master/img/dasktopw.PNG" width="550" />
 </p>
 
-<p align="center">Unofficial Anime Twist application.</p>
+<p align="center">Unofficial WibuNime - Streaming.</p>
 
 ## Installation
 
