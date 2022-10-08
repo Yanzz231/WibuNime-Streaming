@@ -1,11 +1,49 @@
 const fs = require('fs')
+const axios = require('axios')
 const anime = JSON.parse(fs.readFileSync('./database/anime.json'))
 const newanime = JSON.parse(fs.readFileSync('./database/new.json'))
 const report = JSON.parse(fs.readFileSync('./database/report.json'))
 const genre = JSON.parse(fs.readFileSync('./database/genre.json'))
+const crypto = require('crypto')
 
 const getAnime = () => {
     return anime
+}
+const createSerial = (size) => {
+    var textnya = ``
+    for (let i = 0; i < anime.length; i++) {
+        const get = crypto.randomBytes(size).toString('hex').slice(0, size)
+        if (anime[i].eps.length === 0) textnya = crypto.randomBytes(size).toString('hex').slice(0, size)
+        for (let a = 0; a < anime[i].eps.length; a++) {
+            if (anime[i].eps[a].id === get) {
+                textnya = crypto.randomBytes(size).toString('hex').slice(0, size)
+            } else {
+                textnya = get
+            }
+        }
+    }
+    return textnya
+}
+const chnagepp = (nameurl, thumb) => {
+    const indexnya = anime.findIndex(i => i.nameurl === nameurl)
+    if(indexnya === -1) return false
+    anime[indexnya].thumb = thumb
+    fs.writeFileSync('./database/anime.json', JSON.stringify(anime, null, 2))
+}
+const changestatus = (nameurl, status) => {
+    const indexnya = anime.findIndex(i => i.nameurl === nameurl)
+    if(indexnya === -1) return false
+    anime[indexnya].status = status 
+    fs.writeFileSync('./database/anime.json', JSON.stringify(anime, null, 2))
+}
+const checkID = (id) => {
+    for (let i = 0; i < anime.length; i++) {
+        for (let a = 0; a < anime[i].eps.length; a++) {
+            if (anime[i].eps[a].id === id) {
+                return anime[i].eps[a]
+            }
+        }
+    }
 }
 const getNew = () => {
     return newanime
@@ -38,9 +76,9 @@ const AllGenre = (data) => {
         }
     }
     for (let i = 0; i < datanya1.length; i++) {
-            if (!datanya2.includes(datanya1[i])) {
-                datanya2.push(datanya1[i])
-            }
+        if (!datanya2.includes(datanya1[i])) {
+            datanya2.push(datanya1[i])
+        }
     }
     return datanya2
 }
@@ -76,11 +114,18 @@ const searchAnime = (data, anime) => {
     let filterSearch = dataAnime.filter(arr => arr.nama.toLowerCase().includes(anime))
     return filterSearch
 }
-async function getDBEps(nama, id) {
-    const indexName = anime.findIndex(i => i.nameurl === nama)
-    if (indexName === -1) return false
-    const getEps = anime[indexName].eps.findIndex(i => i.eps === id)
-    return anime[indexName].eps[getEps]
+const getDBEps = (nama, id) => {
+    if (isNaN(id)) {
+        const indexName = anime.findIndex(i => i.nameurl === nama)
+        if (indexName === -1) return false
+        const getEps = anime[indexName].eps.findIndex(i => i.eps === id)
+        return anime[indexName].eps[getEps]
+    } else {
+        const indexName = anime.findIndex(i => i.nameurl === nama)
+        if (indexName === -1) return false
+        const getEps = anime[indexName].eps.findIndex(i => i.eps === parseInt(id))
+        return anime[indexName].eps[getEps]
+    }
 }
 async function translateAnime(nama) {
     return new Promise(async (resolve, reject) => {
@@ -94,7 +139,35 @@ async function translateAnime(nama) {
         });
     })
 }
-async function addNewanime(nama, sinop, thumb, nameurl, [genre], time, type, studio) {
+async function getBuffer(url, options) {
+    return new Promise(async (resolve, reject) => {
+        options ? options : {}
+        const res = await axios({
+            method: "get",
+            url,
+            headers: {
+                'DNT': 1,
+                'Upgrade-Insecure-Request': 1
+            },
+            ...options,
+            responseType: 'arraybuffer'
+        }).then(pe => {
+            resolve(true)
+        }).catch((err) => {
+            resolve(false)
+        })
+    })
+}
+const dataEnd = (dataC) => {
+    var angka = 0
+    for (let a = 0; a < dataC.eps.length; a++) {
+        if (isNaN(dataC.eps[a].eps)) {
+            angka += 1
+        }
+    }
+    return angka
+}
+async function addNewanime(nama, sinop, thumb, nameurl, [genre], time, type, rating, status) {
     var obj = {
         "nama": nama,
         "sinop": sinop,
@@ -103,8 +176,8 @@ async function addNewanime(nama, sinop, thumb, nameurl, [genre], time, type, stu
         "genre": genre,
         "time": time,
         "type": type,
-        "status": false,
-        "studio": studio,
+        "status": status,
+        "rating": rating,
         "view": 0,
         "quolity": "HD",
         "eps": [],
@@ -113,6 +186,16 @@ async function addNewanime(nama, sinop, thumb, nameurl, [genre], time, type, stu
     anime.push(obj)
     fs.writeFileSync('./database/anime.json', JSON.stringify(anime, null, 2))
 }
+const filternull = (namenya) => {
+    const indexDB = anime.findIndex(i => i.nameurl === namenya)
+    if (indexDB === -1) return false
+    for (let i = 0; i < anime[indexDB].eps.length; i++) {
+        if (anime[indexDB].eps[i].eps === null) {
+            anime[indexDB].eps[i].eps = "OVA"
+            fs.writeFileSync('./database/anime.json', JSON.stringify(anime, null, 2))
+        }
+    }
+}
 const addView = (nameurl, eps, ip) => {
     if (eps === undefined) {
         const indexDB = anime.findIndex(i => i.nameurl === nameurl)
@@ -120,14 +203,24 @@ const addView = (nameurl, eps, ip) => {
         anime[indexDB].view += 1
         anime[indexDB].ip.push(ip)
         fs.writeFileSync('./database/anime.json', JSON.stringify(anime, null, 2))
+    } else if (eps === "OVA") {
+        const indexDB = anime.findIndex(i => i.nameurl === nameurl)
+        const epss = anime[indexDB].eps.findIndex(i => i.eps === eps)
+        if (anime[indexDB].eps[epss] === [] || anime[indexDB].eps[epss] === undefined) return false
+        if (anime[indexDB].eps[epss].ip.includes(ip)) return false
+        anime[indexDB].eps[epss].ip.push(ip)
+        anime[indexDB].view += 1
+        fs.writeFileSync('./database/anime.json', JSON.stringify(anime, null, 2))
     } else {
         const indexDB = anime.findIndex(i => i.nameurl === nameurl)
-        if (anime[indexDB].ip.includes(ip)) return false
-        anime[indexDB].eps[parseInt(eps) - 1].ip.push(ip)
+        const getEpsnya = anime[indexDB].eps.findIndex(i => i.eps === parseInt(eps))
+        if (anime[indexDB].eps[getEpsnya].ip.includes(ip)) return false
+        anime[indexDB].eps[getEpsnya].ip.push(ip)
+        anime[indexDB].view += 1
         fs.writeFileSync('./database/anime.json', JSON.stringify(anime, null, 2))
     }
 }
-async function addNewEps(namaurl, nama, type, download, host, stream, eps, time) {
+async function addNewEps(namaurl, nama, type, download, host, stream, eps, time, id) {
     const animeGet = anime.findIndex(i => i.nameurl === namaurl)
     if (animeGet === -1) return false
     newanime.push({
@@ -143,6 +236,7 @@ async function addNewEps(namaurl, nama, type, download, host, stream, eps, time)
         "ip": [],
         "time": time,
         "eps": eps,
+        "id": id,
         "download": [
             {
                 "url": download,
@@ -178,15 +272,27 @@ async function deleteEps(nameurl, eps) {
         anime[indexDB].eps.splice(indexP, 1)
         fs.writeFileSync('./database/anime.json', JSON.stringify(anime, null, 2))
     }
-    const indexNew = newanime.findIndex(i => i.url.replace("/anime/", "") === nameurl)
-    newanime.splice(indexNew, 1)
-    fs.writeFileSync('./database/new.json', JSON.stringify(newanime, null, 2))
+    for (let i = 0; i < newanime.length; i++) {
+        if (newanime[i].url.replace("/anime/", "") === nameurl) {
+            if (newanime[i].eps === parseInt(eps)) {
+                newanime.splice(i, 1)
+                fs.writeFileSync('./database/new.json', JSON.stringify(newanime, null, 2))
+            }
+        }
+    }
 }
 async function deleteAnime(nameurl) {
     const indexDB = anime.findIndex(i => i.nameurl === nameurl)
     if (indexDB === -1) return false
     anime.splice(indexDB, 1)
     fs.writeFileSync('./database/anime.json', JSON.stringify(anime, null, 2))
+    for (let i = 0; i < newanime.length; i++) {
+        if (newanime[i].url.replace("/anime/", "") === nameurl) {
+            console.log(newanime[i])
+            newanime.splice(i, 1)
+            fs.writeFileSync('./database/new.json', JSON.stringify(newanime, null, 2))
+        }
+    }
 }
 async function editAnime(nameurl, type, data) {
     const indexDB = anime.findIndex(i => i.nameurl === nameurl)
@@ -211,8 +317,8 @@ async function editAnime(nameurl, type, data) {
         anime[indexDB].type = data
         fs.writeFileSync('./database/anime.json', JSON.stringify(anime, null, 2))
     }
-    else if (type.toLowerCase() === "studio") {
-        anime[indexDB].studio = data
+    else if (type.toLowerCase() === "rateing") {
+        anime[indexDB].rateing = data
         fs.writeFileSync('./database/anime.json', JSON.stringify(anime, null, 2))
     }
     else if (type.toLowerCase() === "quolity") {
@@ -255,8 +361,8 @@ const checkData = (nameurl) => {
     return anime[indexDB]
 }
 const objGenre = (text) => {
-    const hasilrpl = text.replace(/,/g, '')
-    return hasilrpl.trim().split(/ +/).slice(0)
+    const hasilrpl = text.toLowerCase().replace(/ /g, '')
+    return hasilrpl.trim().split(/,/).slice(0)
 }
 module.exports = {
     data: {
@@ -269,6 +375,11 @@ module.exports = {
         addDownlaod
     }
 }
+module.exports.filternull = filternull
+module.exports.getBuffer = getBuffer
+module.exports.dataEnd = dataEnd
+module.exports.checkID = checkID
+module.exports.createSerial = createSerial
 module.exports.AllGenre = AllGenre
 module.exports.getAnime = getAnime
 module.exports.getNew = getNew
@@ -288,3 +399,5 @@ module.exports.addNewanime = addNewanime
 module.exports.addNewEps = addNewEps
 module.exports.addReport = addReport
 module.exports.removeReport = removeReport
+module.exports.chnagepp = chnagepp
+module.exports.changestatus = changestatus

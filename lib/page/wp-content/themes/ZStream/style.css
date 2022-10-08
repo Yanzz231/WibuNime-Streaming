@@ -243,7 +243,7 @@ button.simplefavorites-clear{background:#6e6dfb;color:#eee;padding:5px 10px;bord
 .mirror .mirror-button{padding:5px}
 .mirror .the-button{background:#f1f1f1;color:#777;width:100%;border:none;font-family:inherit;padding:10px 0;transition:.2s;border-radius:5px;cursor:pointer}
 .mirror .the-button.active,.mirror .the-button:hover{background:#6e6dfb;color:#eee}
-.embed-stream{position:relative;overflow:hidden;background:#000;width:100%;padding-top:60%;z-index:98}
+.embed-stream{position:relative;overflow:hidden;background:#000;width:100%;padding-top:56.5%;z-index:98}
 div#pframe{position:absolute;top:0;bottom:0;left:0;right:0;z-index:99}
 @keyframes playerload{
   0%{transform:rotate(0deg)}
@@ -516,7 +516,7 @@ footer{margin-top:20px;background:#2f303e;color:#ccc}
   .series-titlex{display:block}
   .episodeflex{display:block;margin:0}
   .episodeflex-content{margin:0;margin-top:10px}
-  .embed-stream{padding-top:78%}
+  .embed-stream{padding-top:56.5%}
   .episodeflex-sidebar .series-thumb{margin:13px 100px}
   .mirror{display:grid;grid-template-columns:auto auto}
   .nav-stream{padding-bottom:15px}
